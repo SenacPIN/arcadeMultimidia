@@ -541,3 +541,455 @@ h3 {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   Tela de Reprodução do Jogo (jogar.html)
+   ========================================================================== */
+.play-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.play-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  max-width: min(100%, 1200px);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.back-button {
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(71, 229, 160, 0.4);
+  background: rgba(71, 229, 160, 0.08);
+  color: var(--accent);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back-button:hover {
+  background: rgba(71, 229, 160, 0.2);
+  border-color: var(--accent);
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(71, 229, 160, 0.3);
+}
+
+.back-button:active {
+  transform: scale(0.95);
+}
+
+.back-button svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.back-button:hover svg {
+  transform: translateX(-2px);
+}
+
+.play-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.play-title-group h1 {
+  font-size: 1.6rem;
+  margin: 0;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.play-title-group .play-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.game-frame-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: min(100%, 1200px);
+  aspect-ratio: 16 / 9;
+  margin: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #000;
+  overflow: hidden;
+  box-shadow: var(--shadow), 0 20px 50px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fallback se a viewport for muito baixa para a largura proporcional */
+@media (min-aspect-ratio: 16/9) {
+  .game-frame-wrapper {
+    width: auto;
+    height: calc(100vh - 140px);
+    aspect-ratio: 16 / 9;
+    margin: auto;
+  }
+}
+
+.game-frame-wrapper:hover {
+  border-color: rgba(71, 229, 160, 0.3);
+}
+
+.game-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  background: #000;
+}
+
+.game-controls-bar {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(18, 26, 45, 0.85);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.control-button {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.85;
+}
+
+.control-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--accent);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.control-button:active {
+  transform: scale(0.95);
+}
+
+.control-button svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.volume-control-group {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+  max-width: 38px;
+  transition: max-width 0.3s ease;
+}
+
+.volume-control-group:hover,
+.volume-control-group:focus-within {
+  max-width: 150px;
+}
+
+.volume-slider {
+  width: 80px;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  outline: none;
+  margin: 0 10px 0 2px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.volume-slider:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+  background: #ffffff;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.volume-slider::-moz-range-thumb:hover {
+  transform: scale(1.25);
+  background: #ffffff;
+}
+
+/* Modos Fullscreen usando API de tela cheia */
+.game-frame-wrapper:fullscreen {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+  border: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  aspect-ratio: auto !important;
+}
+
+.game-frame-wrapper:fullscreen .game-iframe {
+  border-radius: 0 !important;
+}
+
+/* Esconder o cursor e o botão ao ficar inativo em tela cheia */
+.game-frame-wrapper:fullscreen.mouse-idle {
+  cursor: none;
+}
+
+.game-frame-wrapper:fullscreen.mouse-idle .game-controls-bar {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+
+/* --- Detalhes do Jogo (Abaixo do Frame) --- */
+.game-details {
+  max-width: min(100%, 1200px);
+  width: 100%;
+  margin: 28px auto 48px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.details-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 14px;
+  margin-bottom: 4px;
+}
+
+#details-title {
+  font-size: 2.2rem;
+  margin: 0;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+
+.details-tags {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.details-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 22px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.details-card:hover {
+  border-color: rgba(71, 229, 160, 0.26);
+  box-shadow: 0 6px 24px rgba(71, 229, 160, 0.04);
+}
+
+.details-label {
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--accent);
+  letter-spacing: 0.8px;
+  margin-right: 12px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.details-authors,
+.details-teachers {
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#details-authors-list,
+#details-teachers-list {
+  vertical-align: middle;
+}
+
+.details-description h2 {
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--accent);
+  letter-spacing: 0.8px;
+  margin: 0 0 10px 0;
+}
+
+.details-description p {
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 780px) {
+  #details-title {
+    font-size: 1.8rem;
+  }
+  
+  .details-card {
+    padding: 14px 18px;
+  }
+}
+
+/* --- Play Overlay & Botão Iniciar --- */
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.play-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.play-overlay-bg {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(14px) brightness(0.35);
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.play-trigger-btn {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  outline: none;
+  transition: transform 0.2s ease;
+}
+
+.play-trigger-btn:active {
+  transform: scale(0.95);
+}
+
+@keyframes playPulse {
+  0% { box-shadow: 0 0 20px rgba(71, 229, 160, 0.4); }
+  50% { box-shadow: 0 0 45px rgba(71, 229, 160, 0.75); }
+  100% { box-shadow: 0 0 20px rgba(71, 229, 160, 0.4); }
+}
+
+.play-trigger-btn svg {
+  width: 90px;
+  height: 90px;
+  fill: var(--accent-ink);
+  background: var(--accent);
+  border-radius: 50%;
+  padding: 22px 18px 22px 24px; /* Ajuste para centralizar visualmente o triângulo de play */
+  box-shadow: 0 0 30px rgba(71, 229, 160, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: playPulse 2s infinite ease-in-out;
+  box-sizing: border-box;
+}
+
+.play-trigger-btn span {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-shadow: 0 2px 10px rgba(71, 229, 160, 0.3);
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.play-trigger-btn:hover svg {
+  transform: scale(1.1);
+  background: #ffffff;
+  box-shadow: 0 0 50px rgba(71, 229, 160, 0.85);
+  animation: none; /* Desativa a animação de pulso no hover */
+}
+
+.play-trigger-btn:hover span {
+  color: #ffffff;
+  text-shadow: 0 2px 15px rgba(255, 255, 255, 0.5);
+}
