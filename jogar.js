@@ -82,7 +82,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Setar o banner de background no play-overlay
     if (game.capa) {
-      // Decode e encode para suportar caracteres especiais e espaços
       const bannerUrl = game.capa.split("/").map(part => encodeURIComponent(part)).join("/");
       playOverlayBg.style.backgroundImage = `url('${bannerUrl}')`;
     }
@@ -91,6 +90,58 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Erro ao carregar o jogo:", error);
     window.location.href = "index.html";
     return;
+  }
+
+  // --- Função de Injeção de Áudio via Protótipo ---
+  function hookAudio(win) {
+    try {
+      if (!win || !win.AudioNode || !win.AudioNode.prototype.connect) return;
+      if (win._hooked) return;
+
+      const originalConnect = win.AudioNode.prototype.connect;
+      win.AudioNode.prototype.connect = function(destination, output, input) {
+        if (destination === this.context.destination) {
+          if (!this.context._masterGain) {
+            const gain = this.context.createGain();
+            gain.gain.value = currentVolume;
+            originalConnect.call(gain, this.context.destination);
+            this.context._masterGain = gain;
+            win._masterGains = win._masterGains || [];
+            win._masterGains.push(gain);
+          }
+          return originalConnect.call(this, this.context._masterGain, output, input);
+        }
+        return originalConnect.call(this, destination, output, input);
+      };
+
+      win.setMasterVolume = function(volume) {
+        if (win._masterGains) {
+          win._masterGains.forEach(gain => {
+            try {
+              gain.gain.setValueAtTime(volume, gain.context.currentTime);
+            } catch(e) {}
+          });
+        }
+        try {
+          const mediaElements = win.document.querySelectorAll('audio, video');
+          mediaElements.forEach(media => {
+            media.volume = volume;
+          });
+        } catch(e) {}
+      };
+
+      // Tentar setar o volume inicial nos elementos de mídia já criados
+      try {
+        const mediaElements = win.document.querySelectorAll('audio, video');
+        mediaElements.forEach(media => {
+          media.volume = currentVolume;
+        });
+      } catch(e) {}
+
+      win._hooked = true;
+    } catch (err) {
+      console.error("Erro ao aplicar hook de áudio:", err);
+    }
   }
 
   // --- Função para atualizar volume ---
@@ -132,86 +183,47 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   // --- Ação de Inicialização (Play Button) ---
-  playTriggerBtn.addEventListener("click", async () => {
+  playTriggerBtn.addEventListener("click", () => {
     if (!game) return;
 
-    try {
-      // Carregar a página HTML original do jogo via Fetch
-      const response = await fetch(game.linkJogo);
-      if (!response.ok) throw new Error("Não foi possível recuperar os arquivos do jogo.");
-      let html = await response.text();
+    // Esconder o Overlay
+    playOverlay.classList.add("hidden");
 
-      // Definir a pasta base do jogo para resolver caminhos relativos
-      const baseHref = game.linkJogo.substring(0, game.linkJogo.lastIndexOf("/") + 1);
+    // Definir a URL do iframe diretamente (evita erros de CORS do srcdoc)
+    gameIframe.src = game.linkJogo;
 
-      // Injeção de áudio e caminhos base na cabeça do HTML do jogo
-      const injection = `
-        <base href="${baseHref}">
-        <script>
-          (function() {
-            window.masterVolume = ${currentVolume};
-            window._masterGains = [];
-
-            // Intercepta conexões de áudio para controle por GainNode (Web Audio API)
-            if (window.AudioNode && window.AudioNode.prototype.connect) {
-              const originalConnect = window.AudioNode.prototype.connect;
-              window.AudioNode.prototype.connect = function(destination, output, input) {
-                if (destination === this.context.destination) {
-                  if (!this.context._masterGain) {
-                    const gain = this.context.createGain();
-                    gain.gain.value = window.masterVolume;
-                    originalConnect.call(gain, this.context.destination);
-                    this.context._masterGain = gain;
-                    window._masterGains.push(gain);
-                  }
-                  return originalConnect.call(this, this.context._masterGain, output, input);
-                }
-                return originalConnect.call(this, destination, output, input);
-              };
-            }
-
-            // Função chamada pelo portal pai para alterar volume dinamicamente
-            window.setMasterVolume = function(volume) {
-              window.masterVolume = volume;
-              if (window._masterGains) {
-                window._masterGains.forEach(gain => {
-                  try {
-                    gain.gain.setValueAtTime(volume, gain.context.currentTime);
-                  } catch(e) {}
-                });
-              }
-              try {
-                const mediaElements = document.querySelectorAll('audio, video');
-                mediaElements.forEach(media => {
-                  media.volume = volume;
-                });
-              } catch(e) {}
-            };
-          })();
-        </script>
-      `;
-
-      // Injeta logo após a abertura do head (ou no início do documento)
-      if (html.includes("<head>")) {
-        html = html.replace("<head>", "<head>\n" + injection);
-      } else {
-        html = injection + html;
+    // Polling rápido para injetar o hook de áudio assim que a window do iframe carregar o novo documento
+    let hooked = false;
+    const interval = setInterval(() => {
+      try {
+        const win = gameIframe.contentWindow;
+        if (win && win.AudioNode && win.AudioNode.prototype.connect && !win._hooked) {
+          hookAudio(win);
+          hooked = true;
+        }
+      } catch (e) {
+        // Ignora erros de cross-origin caso a página mude de domínio temporariamente durante o carregamento
       }
+    }, 2);
 
-      // Esconder o Overlay com efeito de transição
-      playOverlay.classList.add("hidden");
+    // Cancela o polling após 6 segundos por segurança
+    setTimeout(() => clearInterval(interval), 6000);
+  });
 
-      // Inserir o HTML modificado no iframe e forçar o foco no carregamento
-      gameIframe.srcdoc = html;
-      gameIframe.onload = () => {
-        gameIframe.focus();
-      };
-
-    } catch (err) {
-      console.error("Erro ao carregar e iniciar o jogo:", err);
-      // Fallback em caso de falha de fetch: carrega o link direto no iframe
-      playOverlay.classList.add("hidden");
-      gameIframe.src = game.linkJogo;
+  // Fallback quando o iframe terminar de carregar (garante foco e hook de segurança)
+  gameIframe.addEventListener("load", () => {
+    try {
+      const win = gameIframe.contentWindow;
+      if (win) {
+        hookAudio(win);
+        // Atualiza o volume no carregamento final
+        if (typeof win.setMasterVolume === "function") {
+          win.setMasterVolume(currentVolume);
+        }
+      }
+      gameIframe.focus();
+    } catch (e) {
+      console.warn("Não foi possível acessar a janela do iframe para finalização:", e);
     }
   });
 
@@ -259,7 +271,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }, 2500); // 2.5 segundos de inatividade
   });
 
-  // Botão Voltar (com suporte a preservar filtros do portal pai)
+  // Botão Voltar
   const backButton = document.getElementById("back-button");
   backButton.addEventListener("click", (e) => {
     if (document.referrer && document.referrer.includes(window.location.hostname)) {
