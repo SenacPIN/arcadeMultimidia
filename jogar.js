@@ -183,8 +183,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   // --- Ação de Inicialização (Play Button) ---
+  let playedByUser = false; // Flag para saber se o load foi disparado pelo clique do usuário
+
   playTriggerBtn.addEventListener("click", () => {
     if (!game) return;
+
+    // Marcar que foi o usuário que iniciou (gesto real)
+    playedByUser = true;
 
     // Esconder o Overlay
     playOverlay.classList.add("hidden");
@@ -193,13 +198,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     gameIframe.src = game.linkJogo;
 
     // Polling rápido para injetar o hook de áudio assim que a window do iframe carregar o novo documento
-    let hooked = false;
     const interval = setInterval(() => {
       try {
         const win = gameIframe.contentWindow;
         if (win && win.AudioNode && win.AudioNode.prototype.connect && !win._hooked) {
           hookAudio(win);
-          hooked = true;
         }
       } catch (e) {
         // Ignora erros de cross-origin caso a página mude de domínio temporariamente durante o carregamento
@@ -210,21 +213,65 @@ document.addEventListener("DOMContentLoaded", async () => {
     setTimeout(() => clearInterval(interval), 6000);
   });
 
-  // Fallback quando o iframe terminar de carregar (garante foco e hook de segurança)
+  // Quando o iframe terminar de carregar: hooks de áudio e foco agressivo no conteúdo
   gameIframe.addEventListener("load", () => {
+    // Ignora o load inicial do iframe vazio (src="")
+    if (!playedByUser) return;
+
     try {
       const win = gameIframe.contentWindow;
       if (win) {
         hookAudio(win);
-        // Atualiza o volume no carregamento final
         if (typeof win.setMasterVolume === "function") {
           win.setMasterVolume(currentVolume);
         }
       }
-      gameIframe.focus();
     } catch (e) {
-      console.warn("Não foi possível acessar a janela do iframe para finalização:", e);
+      console.warn("Não foi possível aplicar hook de áudio:", e);
     }
+
+    // Estratégia de foco em múltiplos estágios para garantir que o teclado funcione imediatamente
+    // Estágio 1: foco no elemento iframe em si
+    gameIframe.focus();
+
+    // Estágio 2: aguarda o documento interno renderizar e tenta focar dentro do iframe
+    setTimeout(() => {
+      try {
+        const win = gameIframe.contentWindow;
+        const doc = gameIframe.contentDocument;
+        if (!win || !doc) return;
+
+        // Tenta focar a janela interna do iframe
+        win.focus();
+
+        // Tenta focar o body do documento interno
+        if (doc.body) {
+          doc.body.focus();
+
+          // Dispara um click sintético no centro do body para acionar o contexto de interação
+          // (browsers exigem um evento de input do usuário; como o clique no Play é o gesto real,
+          //  essa chamada encaminha o "trust" do evento original)
+          const clickEvt = new MouseEvent("click", {
+            bubbles: true,
+            cancelable: true,
+            clientX: gameIframe.clientWidth / 2,
+            clientY: gameIframe.clientHeight / 2,
+          });
+          doc.body.dispatchEvent(clickEvt);
+        }
+
+        // Tenta focar o canvas principal do jogo (Construct, Phaser e GameMaker exportam um <canvas>)
+        const canvas = doc.querySelector("canvas");
+        if (canvas) {
+          canvas.setAttribute("tabindex", "0");
+          canvas.focus();
+        }
+
+      } catch (e) {
+        // Pode falhar se o conteúdo interno ainda não estiver acessível
+        console.warn("Foco no interior do iframe não foi possível:", e);
+      }
+    }, 300);
   });
 
   // --- Controle de Tela Cheia (Fullscreen API) ---
