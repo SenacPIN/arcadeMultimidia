@@ -660,44 +660,115 @@ h3 {
   background: #000;
 }
 
-.fullscreen-button {
+.game-controls-bar {
   position: absolute;
   bottom: 16px;
   right: 16px;
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(18, 26, 45, 0.85);
   border: 1px solid var(--line);
-  background: rgba(18, 26, 45, 0.8);
+  border-radius: 8px;
+  padding: 6px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.control-button {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
   color: var(--text);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 10;
+  transition: all 0.3s ease;
   opacity: 0.85;
 }
 
-.fullscreen-button:hover {
-  opacity: 1;
-  border-color: var(--accent);
+.control-button:hover {
+  background: rgba(255, 255, 255, 0.08);
   color: var(--accent);
-  background: rgba(71, 229, 160, 0.12);
-  transform: scale(1.08);
-  box-shadow: 0 0 15px rgba(71, 229, 160, 0.2);
+  opacity: 1;
+  transform: scale(1.05);
 }
 
-.fullscreen-button:active {
+.control-button:active {
   transform: scale(0.95);
 }
 
-.fullscreen-button svg {
+.control-button svg {
   width: 20px;
   height: 20px;
   fill: currentColor;
+}
+
+.volume-control-group {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+  max-width: 38px;
+  transition: max-width 0.3s ease;
+}
+
+.volume-control-group:hover,
+.volume-control-group:focus-within {
+  max-width: 150px;
+}
+
+.volume-slider {
+  width: 80px;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  outline: none;
+  margin: 0 10px 0 2px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.volume-slider:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+  background: #ffffff;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.volume-slider::-moz-range-thumb:hover {
+  transform: scale(1.25);
+  background: #ffffff;
 }
 
 /* Modos Fullscreen usando API de tela cheia */
@@ -721,7 +792,7 @@ h3 {
   cursor: none;
 }
 
-.game-frame-wrapper:fullscreen.mouse-idle .fullscreen-button {
+.game-frame-wrapper:fullscreen.mouse-idle .game-controls-bar {
   opacity: 0;
   pointer-events: none;
   transform: translateY(10px);
@@ -828,4 +899,97 @@ h3 {
   .details-card {
     padding: 14px 18px;
   }
+}
+
+/* --- Play Overlay & Botão Iniciar --- */
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.play-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.play-overlay-bg {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(14px) brightness(0.35);
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.play-trigger-btn {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  outline: none;
+  transition: transform 0.2s ease;
+}
+
+.play-trigger-btn:active {
+  transform: scale(0.95);
+}
+
+@keyframes playPulse {
+  0% { box-shadow: 0 0 20px rgba(71, 229, 160, 0.4); }
+  50% { box-shadow: 0 0 45px rgba(71, 229, 160, 0.75); }
+  100% { box-shadow: 0 0 20px rgba(71, 229, 160, 0.4); }
+}
+
+.play-trigger-btn svg {
+  width: 90px;
+  height: 90px;
+  fill: var(--accent-ink);
+  background: var(--accent);
+  border-radius: 50%;
+  padding: 22px 18px 22px 24px; /* Ajuste para centralizar visualmente o triângulo de play */
+  box-shadow: 0 0 30px rgba(71, 229, 160, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: playPulse 2s infinite ease-in-out;
+  box-sizing: border-box;
+}
+
+.play-trigger-btn span {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-shadow: 0 2px 10px rgba(71, 229, 160, 0.3);
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.play-trigger-btn:hover svg {
+  transform: scale(1.1);
+  background: #ffffff;
+  box-shadow: 0 0 50px rgba(71, 229, 160, 0.85);
+  animation: none; /* Desativa a animação de pulso no hover */
+}
+
+.play-trigger-btn:hover span {
+  color: #ffffff;
+  text-shadow: 0 2px 15px rgba(255, 255, 255, 0.5);
 }
