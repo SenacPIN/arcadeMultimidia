@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogar | Arcade Multimidia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="play-container">
+  <header class="play-header">
+    <a class="back-button" href="index.html" id="back-button" aria-label="Voltar para a Galeria">
+      <!-- Ícone de seta para voltar -->
+      <svg viewBox="0 0 24 24">
+        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+      </svg>
+    </a>
+
+    <div class="play-title-group">
+      <h1 id="game-title">Carregando jogo...</h1>
+      <div class="play-meta" id="game-meta"></div>
+    </div>
+  </header>
+
+  <main class="game-frame-wrapper" id="game-wrapper">
+    <iframe class="game-iframe" id="game-iframe" src="" allowfullscreen allow="autoplay; fullscreen; gamepad"></iframe>
+    
+    <button class="fullscreen-button" id="fullscreen-btn" type="button" aria-label="Tela Cheia">
+      <!-- Ícone expandir (tela cheia) -->
+      <svg class="icon-expand" viewBox="0 0 24 24">
+        <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+      </svg>
+      <!-- Ícone minimizar (sair da tela cheia) -->
+      <svg class="icon-minimize" style="display: none;" viewBox="0 0 24 24">
+        <path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/>
+      </svg>
+    </button>
+  </main>
+
+  <script src="jogar.js" defer></script>
+</body>
+</html>

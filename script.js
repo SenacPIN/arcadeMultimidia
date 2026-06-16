@@ -107,7 +107,7 @@ function createGameCard(game) {
   const cover = game.capa
     ? `<img src="${getAssetUrl(game.capa)}" alt="Capa do jogo ${game.titulo}" loading="lazy" onerror="this.parentElement.textContent='${game.turma}'">`
     : game.turma;
-  const playUrl = getAssetUrl(game.linkJogo);
+  const playUrl = `jogar.html?jogo=${encodeURIComponent(game.id)}`;
   const canPlay = game.status === "publicado" && game.linkJogo;
   const playControl = canPlay
     ? `<a class="button primary" href="${playUrl}">Jogar</a>`
@@ -165,7 +165,7 @@ function openDialog(game) {
   elements.dialogTheme.textContent = getClassInfo(game.turma).temaTitulo;
   elements.dialogTags.innerHTML = game.tags.map((tag) => `<span class="tag">${tag}</span>`).join("");
   if (game.status === "publicado" && game.linkJogo) {
-    elements.dialogPlay.href = getAssetUrl(game.linkJogo);
+    elements.dialogPlay.href = `jogar.html?jogo=${encodeURIComponent(game.id)}`;
     elements.dialogPlay.textContent = "Jogar";
     elements.dialogPlay.classList.remove("disabled");
   } else {
