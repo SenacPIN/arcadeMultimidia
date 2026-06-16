@@ -8,8 +8,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // Elementos da página
-  const gameTitle = document.getElementById("game-title");
-  const gameMeta = document.getElementById("game-meta");
+  const detailsTitle = document.getElementById("details-title");
+  const detailsTags = document.getElementById("details-tags");
+  const detailsAuthorsList = document.getElementById("details-authors-list");
+  const detailsDescriptionText = document.getElementById("details-description-text");
+  const detailsTeachersList = document.getElementById("details-teachers-list");
   const gameIframe = document.getElementById("game-iframe");
   const gameWrapper = document.getElementById("game-wrapper");
   const fullscreenBtn = document.getElementById("fullscreen-btn");
@@ -31,14 +34,24 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Preencher dados do jogo na página
     document.title = `${game.titulo} | Arcade Multimidia`;
-    gameTitle.textContent = game.titulo;
+    detailsTitle.textContent = game.titulo;
     
-    gameMeta.innerHTML = `
-      <span class="pill primary">${game.turma}</span>
-      <span class="pill">${game.ano}</span>
-      <span class="pill">${game.categoria}</span>
-      <span class="pill">${game.tipoProjeto || "Projeto"}</span>
-    `;
+    // Adicionar tags dinâmicas
+    let tagsHtml = `<span class="pill primary">${game.turma}</span>`;
+    if (game.tecnologias && game.tecnologias.length > 0) {
+      game.tecnologias.forEach(tech => {
+        tagsHtml += `<span class="pill warning">${tech}</span>`;
+      });
+    }
+    detailsTags.innerHTML = tagsHtml;
+
+    // Autores, Descrição e Docentes
+    detailsAuthorsList.textContent = game.autores && game.autores.length > 0 
+      ? game.autores.join(", ") 
+      : "Não informado";
+      
+    detailsDescriptionText.textContent = game.descricaoCompleta || game.descricaoCurta || "Sem descrição disponível.";
+    detailsTeachersList.textContent = game.docente || "Não informado";
 
     // Carregar o iframe com o jogo
     gameIframe.src = game.linkJogo;

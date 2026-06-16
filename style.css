@@ -726,3 +726,106 @@ h3 {
   pointer-events: none;
   transform: translateY(10px);
 }
+
+/* --- Detalhes do Jogo (Abaixo do Frame) --- */
+.game-details {
+  max-width: min(100%, 1200px);
+  width: 100%;
+  margin: 28px auto 48px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.details-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 14px;
+  margin-bottom: 4px;
+}
+
+#details-title {
+  font-size: 2.2rem;
+  margin: 0;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+
+.details-tags {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.details-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 22px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.details-card:hover {
+  border-color: rgba(71, 229, 160, 0.26);
+  box-shadow: 0 6px 24px rgba(71, 229, 160, 0.04);
+}
+
+.details-label {
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--accent);
+  letter-spacing: 0.8px;
+  margin-right: 12px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.details-authors,
+.details-teachers {
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#details-authors-list,
+#details-teachers-list {
+  vertical-align: middle;
+}
+
+.details-description h2 {
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--accent);
+  letter-spacing: 0.8px;
+  margin: 0 0 10px 0;
+}
+
+.details-description p {
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 780px) {
+  #details-title {
+    font-size: 1.8rem;
+  }
+  
+  .details-card {
+    padding: 14px 18px;
+  }
+}

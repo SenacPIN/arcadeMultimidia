@@ -17,11 +17,6 @@
         <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
       </svg>
     </a>
-
-    <div class="play-title-group">
-      <h1 id="game-title">Carregando jogo...</h1>
-      <div class="play-meta" id="game-meta"></div>
-    </div>
   </header>
 
   <main class="game-frame-wrapper" id="game-wrapper">
@@ -38,6 +33,30 @@
       </svg>
     </button>
   </main>
+
+  <section class="game-details" id="game-details">
+    <div class="details-title-row">
+      <h1 id="details-title">Carregando título...</h1>
+      <div class="details-tags" id="details-tags">
+        <!-- Tags dinâmicas (Turma, Engine, etc.) -->
+      </div>
+    </div>
+
+    <div class="details-card details-authors">
+      <span class="details-label">Autor(es):</span>
+      <span id="details-authors-list">Carregando...</span>
+    </div>
+
+    <div class="details-card details-description">
+      <h2>Descrição</h2>
+      <p id="details-description-text">Carregando descrição completa...</p>
+    </div>
+
+    <div class="details-card details-teachers">
+      <span class="details-label">Docente(s):</span>
+      <span id="details-teachers-list">Carregando...</span>
+    </div>
+  </section>
 
   <script src="jogar.js" defer></script>
 </body>
