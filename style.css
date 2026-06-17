@@ -62,7 +62,7 @@ input {
   text-decoration: none;
 }
 
-.brand-mark {
+/* .brand-mark {
   display: grid;
   width: 38px;
   height: 38px;
@@ -72,7 +72,7 @@ input {
   background: rgba(71, 229, 160, 0.12);
   color: var(--accent);
   font-size: 0.85rem;
-}
+} */
 
 .game-count {
   margin: 0;
@@ -89,9 +89,9 @@ input {
   border-top: 1px solid var(--line);
 }
 
-.catalog-intro > div {
+/* .catalog-intro > div {
   max-width: 760px;
-}
+} */
 
 .eyebrow {
   margin: 0 0 8px;
