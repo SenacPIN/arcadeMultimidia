@@ -18,9 +18,9 @@
   {
     "id": "T5",
     "nome": "Turma T5",
-    "temaTitulo": "Tema gerador do projeto final a cadastrar",
-    "temaDescricao": "Adicione aqui o texto do tema gerador usado no projeto final em equipe.",
-    "descricao": "A turma trabalhou com jogos unitarios, desenvolvidos individualmente, e tambem com uma proposta final em equipe orientada por tema gerador.",
+    "temaTitulo": "Identidade Digital",
+    "temaDescricao": "Do que nos torna únicos ao algoritmo.",
+    "descricao": "Inspirada no tema gerador do CRIA Senac São Paulo, a turma T5 desenvolveu projetos que exploram a relação entre criatividade humana e tecnologia, refletindo sobre identidade, cultura, ética, inteligência artificial e os impactos da massificação digital. A proposta buscou incentivar os estudantes a utilizarem a tecnologia como ferramenta criativa para resolver problemas, construir narrativas e criar experiências significativas sem perder aquilo que torna cada criação única e humana. Durante o curso, os alunos receberam dois desafios principais. No primeiro, cada estudante desenvolveu individualmente um universo próprio, criando personagem, narrativa, cenários, interface e programação do projeto, atuando simultaneamente como designer e desenvolvedor. Todos os projetos identificados como “Individual” fazem parte dessa etapa. Em seguida, os alunos iniciaram o PI (Projeto Integrador), desenvolvido em equipe e baseado diretamente no tema do CRIA, ampliando a discussão sobre como a tecnologia pode impactar comunidades, territórios e relações humanas de forma crítica, criativa e consciente.",
     "proposta": "Unitario + final em equipe"
   }
 ]
