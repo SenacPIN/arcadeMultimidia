@@ -62,17 +62,7 @@ input {
   text-decoration: none;
 }
 
-/* .brand-mark {
-  display: grid;
-  width: 38px;
-  height: 38px;
-  place-items: center;
-  border: 1px solid rgba(71, 229, 160, 0.48);
-  border-radius: 8px;
-  background: rgba(71, 229, 160, 0.12);
-  color: var(--accent);
-  font-size: 0.85rem;
-} */
+
 
 .game-count {
   margin: 0;
