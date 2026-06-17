@@ -1,0 +1,583 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 48703,
+	"name": "CoracaoSelvagem",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Áudio",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Teclado",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Armazenamento local",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Texto",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Plano de Fundo em Blocos",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Tilemap",
+			"name": "Mosaico",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "gamepad",
+			"name": "Gamepad",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Bullet",
+			"name": "Projétil",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Esmaecer",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Flash",
+			"name": "Piscar",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Follow",
+			"name": "Seguir",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Platform",
+			"name": "Plataforma",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Senóide",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Timer",
+			"name": "Cronômetro",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "bound",
+			"name": "Restrito ao layout",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "jumpthru",
+			"name": "Pular através",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Centrar em",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Sólido",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "tint",
+			"name": "Tonalidade",
+			"author": "Scirra",
+			"bundled": false
+		}
+	],
+	"uniqueId": "jqhbo0ja15v",
+	"objectTypes": {
+		"items": [
+			"Teclado",
+			"Player",
+			"rastro",
+			"Mouse",
+			"Gamepad",
+			"Barradevida",
+			"moeda1",
+			"Áudio",
+			"plataforma",
+			"pontuacaoseiva",
+			"moedahud",
+			"ArmazenamentoLocal",
+			"FolhaQuebrante",
+			"checkpoint",
+			"entradadabiblioteca",
+			"macaco",
+			"totemsaveplat",
+			"monkay",
+			"passarinho",
+			"passarinhoamarlo",
+			"passaarinho2",
+			"passarinho3",
+			"Sprite7"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Blocopassavel",
+					"Chão",
+					"Porta",
+					"sensorPorta",
+					"dicaporta",
+					"ColisaoCasa",
+					"FundoQuarto",
+					"chavenova",
+					"CdTPorta",
+					"portafechada",
+					"capivara",
+					"caixacapivara",
+					"FALACAPIVARA",
+					"E",
+					"ecapivara",
+					"eporta"
+				],
+				"subfolders": [],
+				"name": "1-quarto"
+			},
+			{
+				"items": [
+					"BG10",
+					"BG8",
+					"BG9",
+					"BG7",
+					"BG6",
+					"EspinhosmosaicoF2",
+					"MosaicoF2",
+					"sapo",
+					"AbelhaG",
+					"abelhinha",
+					"joaninha",
+					"abelhinha2",
+					"botaodestruir",
+					"parededestruir",
+					"platsurgir",
+					"platparado",
+					"livro"
+				],
+				"subfolders": [],
+				"name": "2-rua"
+			},
+			{
+				"items": [
+					"BG5",
+					"BG4",
+					"BG3",
+					"BG2",
+					"BG1",
+					"espinhos",
+					"sensorRua1",
+					"plat",
+					"alavanca",
+					"seuManoel",
+					"EspinhosmosaicoF1",
+					"MosaicoF1",
+					"casa",
+					"Falamanoel",
+					"entradabiblioteca",
+					"Sprite4",
+					"ealavanca",
+					"balaomanoel",
+					"emanuel",
+					"qalavanca"
+				],
+				"subfolders": [],
+				"name": "1-rua"
+			},
+			{
+				"items": [
+					"Biblioteca",
+					"paredebiblioteca",
+					"chaobiblioteca",
+					"falabibli",
+					"bibliotexto",
+					"bibliotexto2",
+					"bibliotexto3",
+					"saida",
+					"entrada",
+					"ebibli",
+					"entrad",
+					"esaida",
+					"fundobiblioteca"
+				],
+				"subfolders": [],
+				"name": "2-bliblioteca"
+			},
+			{
+				"items": [
+					"btn_ng",
+					"btn_opt",
+					"Sprite",
+					"Sprite2"
+				],
+				"subfolders": [],
+				"name": "0-Menu"
+			},
+			{
+				"items": [
+					"textoagrdecimento",
+					"Sprite3",
+					"Sprite5",
+					"baina",
+					"Sprite6",
+					"beijaFlor"
+				],
+				"subfolders": [],
+				"name": "fim de jogo"
+			}
+		]
+	},
+	"functionsName": "Functions",
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Quarto",
+			"rua_1",
+			"rua_2",
+			"bliblioteca",
+			"main_menu",
+			"loading",
+			"config_menu",
+			"fim_de_jogo"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"f-quarto",
+			"f-rua1",
+			"f-player",
+			"f-bliblioteca",
+			"f-rua2",
+			"f-main_menu",
+			"f-loading",
+			"f-INICIARjogo",
+			"f-pisoCAI",
+			"f-fimdejogo"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [
+				{
+					"name": "PL002(2).webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 996678068278435,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "PL002(1).webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 261855808570648,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "MB010.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 908464483199445,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "PL001.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 759837639709010,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "PL003(01).webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 346777613244978,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "UI005.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 296043886507817,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "MB006.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 733922401466527,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "MB007.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 142497970375312,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"music": {
+			"items": [
+				{
+					"name": "musica tema_mixagem (1).webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 236828050653104,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "Minecraft.ttf",
+					"type": "application/font-sfnt",
+					"sid": 788438550251449,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 470775526789299,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 457623445422521,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 614811425060079,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 821303267506012,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 878939249063954,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 497476340860219,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 971154534777925,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [
+			"Linha do tempo 1"
+		],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"flowcharts": {
+		"items": [
+			"Fluxograma 1"
+		],
+		"subfolders": []
+	},
+	"models3d": {
+		"items": [],
+		"subfolders": []
+	},
+	"properties": {
+		"description": "",
+		"version": "1.0.0.0",
+		"autoIncrementVersion": false,
+		"author": "",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": true,
+		"zAxisScale": "regular",
+		"fov": 0.7853981633974483,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"orientations": "any",
+		"webgpu": "auto",
+		"multitexturing": "auto",
+		"gpuPreference": "high-performance",
+		"framerateMode": "vsync",
+		"fixedFramerate": 30,
+		"sampling": "nearest",
+		"downscaling": "medium",
+		"renderingMode": "auto",
+		"anisotropicFiltering": "auto",
+		"zNear": 1,
+		"zFar": 10000,
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"uidAllocationMode": "increment",
+		"cordovaiOSScheme": "app",
+		"cordovaAndroidScheme": "https",
+		"exportFileStructure": "folders",
+		"scriptsType": "module"
+	},
+	"viewportWidth": 640,
+	"viewportHeight": 320,
+	"firstLayout": "main_menu"
+}

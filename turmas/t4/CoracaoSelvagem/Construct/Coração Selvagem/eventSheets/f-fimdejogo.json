@@ -1,0 +1,55 @@
+{
+	"name": "f-fimdejogo",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 227491980891949
+				}
+			],
+			"actions": [
+				{
+					"id": "typewriter-text",
+					"objectClass": "textoagrdecimento",
+					"sid": 483461535571577,
+					"parameters": {
+						"text": "\"Em nome de toda a equipe do Coração Selvagem, agradecemos por jogar nossa demo. Foram muitas horas de trabalho, esforço e até mesmo madrugadas em claro para produzirmos esse projeto tão especial — literalmente, sangue, suor e lágrimas (snif, snif).\n\nA ideia do nosso jogo é trazer uma reflexão ao público, incentivando-o a repensar o futuro que teremos, que, por vezes, pode parecer repleto de maravilhas. No entanto, devemos estar atentos à nossa própria ganância humana.\n\nEsperamos em breve trazer ainda mais do nosso jogo para vocês!\"",
+						"duration": "11.0"
+					}
+				}
+			],
+			"sid": 279983044763983
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 405620159983329
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Áudio",
+					"sid": 195946178697372,
+					"parameters": {
+						"audio-file": {
+							"path": "musica tema_mixagem (1)"
+						},
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 977605103450714
+		}
+	],
+	"sid": 210678385233563
+}

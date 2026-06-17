@@ -82,7 +82,7 @@
   },
   {
     "id": "coracao-selvagem",
-    "titulo": "Coracao Selvagem",
+    "titulo": "Coração Selvagem",
     "turma": "T4",
     "ano": "2025",
     "autores": [
@@ -90,22 +90,22 @@
       "Lucas Cesar Costa Alves da Silva"
     ],
     "docente": "Adan Castro, Tainá Couto e Vinicios Savio",
-    "descricaoCurta": "Experiencia narrativa desenvolvida pela turma T4.",
-    "descricaoCompleta": "Projeto que combina ambientacao, progressao e interatividade para apresentar uma proposta autoral dos estudantes.",
+    "descricaoCurta": "Um jogo de plataforma metroidvania com foco em exploração e puzzle.",
+    "descricaoCompleta": "Em Coração Selvagem, a humanidade vive em harmonia com a natureza graças a uma enorme árvore que fornece energia limpa para as cidades. Porém, a árvore começa a morrer, ameaçando todo o equilíbrio do mundo. Um grupo radical, que a considera sagrada, tenta salvá-la usando um mutagênico experimental, mas acaba criando monstros que espalham caos e destruição. Agora, cabe ao jogador enfrentar essas criaturas e descobrir a verdade por trás da decadência da árvore.",
     "categoria": "Narrativo",
     "tags": [
       "Narrativa",
-      "2D",
-      "Web"
+      "Plataforma",
+      "Puzzle"
     ],
     "tecnologias": [
       "Construct"
     ],
     "capa": "turmas/t4/Banners/Coração selvagem.png",
-    "linkJogo": "",
+    "linkJogo": "turmas/t4/CoracaoSelvagem/index.html",
     "destaque": true,
     "status": "publicado",
-    "observacoes": "A pagina antiga aponta para turmas/t4/jogo1/index.html, mas esse arquivo nao foi encontrado no repositorio.",
+    "observacoes": "Jogo premiado no CRIA 2025",
     "tipoProjeto": "Equipe"
   },
   {
