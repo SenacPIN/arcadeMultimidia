@@ -27,6 +27,33 @@
     "tipoProjeto": "Individual"
   },
   {
+    "id": "escapeGame",
+    "titulo": "Escape The Game",
+    "turma": "T3",
+    "ano": "2026",
+    "autores": [
+      "Leonardo Florindo de Oliveira"
+    ],
+    "docente": "Adan Castro e Tainá Couto",
+    "descricaoCurta": "",
+    "descricaoCompleta": "Jogo de plataforma 2D desenvolvido pelo estudante Leonardo.",
+    "categoria": "Aventura",
+    "tags": [
+      "Exploração",
+      "Plataforma",
+      "Web"
+    ],
+    "tecnologias": [
+      "Construct"
+    ],
+    "capa": "turmas/t3/Banners/Icon_escape.png",
+    "linkJogo": "turmas/t3/EscapeTheGame/index.html",
+    "destaque": true,
+    "status": "publicado",
+    "observacoes": "",
+    "tipoProjeto": "Individual"
+  },
+  {
     "id": "fugaAraras",
     "titulo": "Fuga das Araras",
     "turma": "T3",
