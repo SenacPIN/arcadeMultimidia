@@ -27,27 +27,81 @@
     "tipoProjeto": "Individual"
   },
   {
-    "id": "zelador-vs-ninjas",
-    "titulo": "Zelador Vs Ninjas",
+    "id": "fugaAraras",
+    "titulo": "Fuga das Araras",
     "turma": "T3",
-    "ano": "2024",
+    "ano": "2026",
     "autores": [
-      "Gustavo Nathan de Abreu Cavalcante"
+      "Patrick Daiki Wakamura e Silva"
     ],
     "docente": "Adan Castro e Tainá Couto",
-    "descricaoCurta": "Ninjas invadiram o prédio e o Zelador precisará resolver esta situação.",
-    "descricaoCompleta": "Experiencia criada para explorar mecanicas de jogo, ritmo de desafio e apresentacao visual em ambiente web.",
-    "categoria": "Acao",
+    "descricaoCurta": "",
+    "descricaoCompleta": "Jogo de plataforma 2D desenvolvido pelo estudante Patrick.",
+    "categoria": "Aventura",
     "tags": [
       "2D",
-      "Acao",
+      "Plataforma",
       "Web"
     ],
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t3/Banners/Icon_zelador.png",
-    "linkJogo": "turmas/t3/Zelador Vs Ninjas/index.html",
+    "capa": "turmas/t3/Banners/Icon_FugaAraras.png",
+    "linkJogo": "turmas/t3/Binx/index.html",
+    "destaque": true,
+    "status": "publicado",
+    "observacoes": "",
+    "tipoProjeto": "Individual"
+  },
+  {
+    "id": "Melodic",
+    "titulo": "Melodic Moods",
+    "turma": "T3",
+    "ano": "2024",
+    "autores": [
+      "Wilton Santos de Jesus Filho"
+    ],
+    "docente": "Adan Castro e Tainá Couto",
+    "descricaoCurta": "",
+    "descricaoCompleta": "Projeto desenvolvido individualmente pelo estudante.",
+    "categoria": "Arcade",
+    "tags": [
+      "Ritmo",
+      "Arcade",
+      "Web"
+    ],
+    "tecnologias": [
+      "Construct"
+    ],
+    "capa": "turmas/t3/Banners/Icon_MelodicMoods.png",
+    "linkJogo": "turmas/t3/MelodicMoods/index.html",
+    "destaque": false,
+    "status": "publicado",
+    "observacoes": "",
+    "tipoProjeto": "Individual"
+  },
+  {
+    "id": "pingu",
+    "titulo": "Pingu",
+    "turma": "T3",
+    "ano": "2024",
+    "autores": [
+      "Nícolas Miguel dos Santos Silva"
+    ],
+    "docente": "Adan Castro e Tainá Couto",
+    "descricaoCurta": "",
+    "descricaoCompleta": "Projeto desenvolvido individualmente pelo estudante.",
+    "categoria": "Arcade",
+    "tags": [
+      "2D",
+      "Arcade",
+      "Web"
+    ],
+    "tecnologias": [
+      "Construct"
+    ],
+    "capa": "turmas/t3/Banners/Icon_pingu.png",
+    "linkJogo": "turmas/t3/Pingu/index.html",
     "destaque": false,
     "status": "publicado",
     "observacoes": "",
@@ -75,6 +129,33 @@
     ],
     "capa": "turmas/t3/Banners/Icon_mike.png",
     "linkJogo": "turmas/t3/pug/index.html",
+    "destaque": false,
+    "status": "publicado",
+    "observacoes": "",
+    "tipoProjeto": "Individual"
+  },
+  {
+    "id": "zelador-vs-ninjas",
+    "titulo": "Zelador Vs Ninjas",
+    "turma": "T3",
+    "ano": "2024",
+    "autores": [
+      "Gustavo Nathan de Abreu Cavalcante"
+    ],
+    "docente": "Adan Castro e Tainá Couto",
+    "descricaoCurta": "Ninjas invadiram o prédio e o Zelador precisará resolver esta situação.",
+    "descricaoCompleta": "Experiencia criada para explorar mecanicas de jogo, ritmo de desafio e apresentacao visual em ambiente web.",
+    "categoria": "Acao",
+    "tags": [
+      "2D",
+      "Acao",
+      "Web"
+    ],
+    "tecnologias": [
+      "Construct"
+    ],
+    "capa": "turmas/t3/Banners/Icon_zelador.png",
+    "linkJogo": "turmas/t3/Zelador Vs Ninjas/index.html",
     "destaque": false,
     "status": "publicado",
     "observacoes": "",
