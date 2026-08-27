@@ -515,7 +515,6 @@ h3 {
   .topbar,
   .gallery-heading {
     align-items: flex-start;
-    flex-direction: column;
   }
 
   h1 {
@@ -888,6 +887,9 @@ h3 {
   
   .details-card {
     padding: 14px 18px;
+  }
+  .descricao_header{
+    display:none;
   }
 }
 
