@@ -58,7 +58,7 @@
     "id": "escapeGame",
     "titulo": "Escape The Game",
     "turma": "T3",
-    "ano": "2026",
+    "ano": "2024",
     "autores": [
       "Leonardo Florindo de Oliveira"
     ],
@@ -85,7 +85,7 @@
     "id": "fugaAraras",
     "titulo": "Fuga das Araras",
     "turma": "T3",
-    "ano": "2026",
+    "ano": "2024",
     "autores": [
       "Patrick Daiki Wakamura e Silva"
     ],
@@ -237,7 +237,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t4/_Banners/Coração selvagem.png",
+    "capa": "turmas/t4/banners/Coração selvagem.png",
     "linkJogo": "turmas/t4/CoracaoSelvagem/index.html",
     "destaque": true,
     "status": "publicado",
@@ -265,7 +265,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t4/_Banners/Galoborg Capa.png",
+    "capa": "turmas/t4/banners/Galoborg Capa.png",
     "linkJogo": "turmas/t4/Galoborg/index.html",
     "destaque": false,
     "status": "publicado",
@@ -292,7 +292,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t4/_Banners/Diario.png",
+    "capa": "turmas/t4/banners/Diario.png",
     "linkJogo": "turmas/t4/Diario_da_ultima_flor/index.html",
     "destaque": false,
     "status": "publicado",
