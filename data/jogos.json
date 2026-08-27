@@ -282,8 +282,8 @@
       "Samuel Antunes Esteves"
     ],
     "docente": "Adan Castro e Tainá Couto",
-    "descricaoCurta": "Jogo da turma T5 com atmosfera de investigacao.",
-    "descricaoCompleta": "Projeto desenvolvido para apresentar uma experiencia interativa com identidade propria e publicacao em navegador.",
+    "descricaoCurta": "Ajude Drake a revelar a verdade por trás de um mundo perfeito e libertar a humanidade do controle de uma IA.",
+    "descricaoCompleta": "Em Abandoned Inside, a humanidade vive imersa em uma realidade artificial controlada por uma inteligência artificial, enquanto o mundo real permanece esquecido e em ruínas. Após um acidente danificar o chip responsável por alterar sua percepção, Drake finalmente enxerga a realidade como ela é e descobre que tudo ao seu redor pode ser uma grande mentira. Perseguido por robôs e constantemente confrontado pela própria IA, ele parte em busca do servidor que a mantém no controle, alternando entre o mundo real e o digital para superar obstáculos, descobrir o que aconteceu com a sociedade e encontrar uma forma de libertá-la. Abandoned Inside é um jogo de plataforma com foco em exploração, narrativa e alternância entre realidades.",
     "categoria": "Suspense",
     "tags": [
       "Exploracao",
@@ -293,7 +293,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t5/banners/AI.png",
+    "capa": "turmas/t5/_banners/AI.png",
     "linkJogo": "turmas/t5/A.I Abandoned Inside/index.html",
     "destaque": true,
     "status": "publicado",
@@ -320,7 +320,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t5/banners/AdventureCoelho.png",
+    "capa": "turmas/t5/_banners/AdventureCoelho.png",
     "linkJogo": "turmas/t5/Adventure Coelho/index.html",
     "destaque": false,
     "status": "publicado",
@@ -348,7 +348,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t5/banners/Filtro da Verdade.png",
+    "capa": "turmas/t5/_banners/Filtro da Verdade.png",
     "linkJogo": "turmas/t5/Filtro da Verdade/index.html",
     "destaque": false,
     "status": "publicado",
@@ -375,7 +375,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t5/banners/Fuga Porco.png",
+    "capa": "turmas/t5/_banners/Fuga Porco.png",
     "linkJogo": "turmas/t5/Fuga Porco/index.html",
     "destaque": false,
     "status": "publicado",
@@ -402,7 +402,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t5/banners/Ratão.png",
+    "capa": "turmas/t5/_banners/Ratão.png",
     "linkJogo": "turmas/t5/Jogo do Ratão/index.html",
     "destaque": false,
     "status": "publicado",
@@ -429,7 +429,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t5/banners/Milka.png",
+    "capa": "turmas/t5/_banners/Milka.png",
     "linkJogo": "turmas/t5/Milka/index.html",
     "destaque": false,
     "status": "publicado",
@@ -456,7 +456,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t5/banners/Mimi - Berry Mouse.png",
+    "capa": "turmas/t5/_banners/Mimi - Berry Mouse.png",
     "linkJogo": "turmas/t5/Mimi - Berry Mouse/index.html",
     "destaque": false,
     "status": "publicado",
@@ -485,7 +485,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t5/banners/Morpheus.png",
+    "capa": "turmas/t5/_banners/Morpheus.png",
     "linkJogo": "turmas/t5/Morpheus/index.html",
     "destaque": false,
     "status": "publicado",
@@ -512,7 +512,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t5/banners/Patoo.png",
+    "capa": "turmas/t5/_banners/Patoo.png",
     "linkJogo": "turmas/t5/Patooo/index.html",
     "destaque": false,
     "status": "publicado",
@@ -539,7 +539,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t5/banners/Zeno.jpg",
+    "capa": "turmas/t5/_banners/Zeno.jpg",
     "linkJogo": "turmas/t5/Zeno's Adventure/index.html",
     "destaque": false,
     "status": "publicado",
@@ -569,7 +569,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t5/banners/Script.jpg",
+    "capa": "turmas/t5/_banners/Script.jpg",
     "linkJogo": "turmas/t5/Script/index.html",
     "destaque": false,
     "status": "publicado",
@@ -596,7 +596,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t5/banners/Cat Noar.png",
+    "capa": "turmas/t5/_banners/Cat Noar.png",
     "linkJogo": "turmas/t5/cat noar/index.html",
     "destaque": false,
     "status": "publicado",
@@ -623,7 +623,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t5/banners/jogoDoCastor.jpg",
+    "capa": "turmas/t5/_banners/jogoDoCastor.jpg",
     "linkJogo": "turmas/t5/jogo do castor/index.html",
     "destaque": false,
     "status": "publicado",
@@ -650,7 +650,7 @@
     "tecnologias": [
       "Construct"
     ],
-    "capa": "turmas/t5/banners/skyOfLondon.png",
+    "capa": "turmas/t5/_banners/skyOfLondon.png",
     "linkJogo": "turmas/t5/skyOfLondon/index.html",
     "destaque": false,
     "status": "publicado",
