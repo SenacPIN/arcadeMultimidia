@@ -1,5 +1,32 @@
 [
   {
+    "id": "pipin",
+    "titulo": "As Aventuras de Pipin",
+    "turma": "T3",
+    "ano": "2024",
+    "autores": [
+      "Ana Carolina Nunes dos Santos"
+    ],
+    "docente": "Adan Castro e Tainá Couto",
+    "descricaoCurta": "",
+    "descricaoCompleta": "",
+    "categoria": "Aventura",
+    "tags": [
+      "2D",
+      "Plataforma",
+      "Web"
+    ],
+    "tecnologias": [
+      "Construct"
+    ],
+    "capa": "turmas/t3/Banners/Pippin.png",
+    "linkJogo": "turmas/t3/AsAventurasDePippin/index.html",
+    "destaque": true,
+    "status": "publicado",
+    "observacoes": "",
+    "tipoProjeto": "Individual"
+  },
+  {
     "id": "binx",
     "titulo": "Binx",
     "turma": "T3",
