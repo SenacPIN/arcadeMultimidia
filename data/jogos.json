@@ -3,7 +3,7 @@
     "id": "binx",
     "titulo": "Binx",
     "turma": "T3",
-    "ano": "2026",
+    "ano": "2024",
     "autores": [
       "Eduardo Moura e Silva"
     ],
@@ -21,6 +21,34 @@
     ],
     "capa": "turmas/t3/Banners/Icon_binx.png",
     "linkJogo": "turmas/t3/Binx/index.html",
+    "destaque": true,
+    "status": "publicado",
+    "observacoes": "",
+    "tipoProjeto": "Individual"
+  },
+  {
+    "id": "carrotQuest",
+    "titulo": "Carrot Quest",
+    "turma": "T3",
+    "ano": "2024",
+    "autores": [
+      "Igor Marcondes da Silva",
+      "Thiago Silva Carmo"
+    ],
+    "docente": "Adan Castro e Tainá Couto",
+    "descricaoCurta": "",
+    "descricaoCompleta": "Jogo de plataforma 2D desenvolvido pelo estudante Leonardo.",
+    "categoria": "Aventura",
+    "tags": [
+      "Exploração",
+      "Plataforma",
+      "Web"
+    ],
+    "tecnologias": [
+      "Construct"
+    ],
+    "capa": "turmas/t3/Banners/CarrotQuest.png",
+    "linkJogo": "turmas/t3/CarrotQuest/index.html",
     "destaque": true,
     "status": "publicado",
     "observacoes": "",
@@ -74,7 +102,7 @@
       "Construct"
     ],
     "capa": "turmas/t3/Banners/Icon_FugaAraras.png",
-    "linkJogo": "turmas/t3/Binx/index.html",
+    "linkJogo": "turmas/t3/FugaDasAraras/index.html",
     "destaque": true,
     "status": "publicado",
     "observacoes": "",
